@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yeet", "Yeet\Yeet.csproj", "{AC5182EB-849C-4FFD-B9B1-E697D7ABE831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeetClass", "YeetClass\YeetClass.csproj", "{7ECDDA36-E772-4AF2-822F-F31FAEF02440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC5182EB-849C-4FFD-B9B1-E697D7ABE831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5182EB-849C-4FFD-B9B1-E697D7ABE831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5182EB-849C-4FFD-B9B1-E697D7ABE831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5182EB-849C-4FFD-B9B1-E697D7ABE831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECDDA36-E772-4AF2-822F-F31FAEF02440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECDDA36-E772-4AF2-822F-F31FAEF02440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECDDA36-E772-4AF2-822F-F31FAEF02440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECDDA36-E772-4AF2-822F-F31FAEF02440}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {257D86A0-BBF1-4AAE-999A-C1B08800CA39}
+	EndGlobalSection
+EndGlobal
