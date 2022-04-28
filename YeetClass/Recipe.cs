@@ -14,6 +14,8 @@ namespace YeetClass
         private int score_negative { get; set; }
         private List<String> ingredients = new List<String>();
         private List<String> instructions = new List<String>();
+        private List<Recipe> list_comp = new List<Recipe>();
+        private int rad;
 
         public Recipe(string name, string description, string imagePath, int duration, int score_p, int score_n, List<string> ingredients, List<string> instructions)
         {
@@ -24,6 +26,7 @@ namespace YeetClass
             this.score_negative = score_n;
             this.ingredients = ingredients;
             this.instructions = instructions;
+            this.list_comp = list_comp;
         }
 
         public String toString()
@@ -34,6 +37,14 @@ namespace YeetClass
                 " " + this.duration +
                 " " + this.score_positive +
                 " " + this.score_negative;
+        }
+        public String getImage()
+        {
+            return this.imagePath;
+        }
+        public List<Recipe> getList()
+        {
+            return this.list_comp;
         }
     }
 }

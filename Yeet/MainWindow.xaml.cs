@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using YeetClass;
 using System;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace Yeet
 {
@@ -28,6 +29,9 @@ namespace Yeet
     public partial class MainWindow : Window
     {
         private object propValue;
+        Recipe reze=new Recipe(null,null,null,0,0,0,null,null);
+        List<Recipe> liste_comp;
+        int rad;
 
         public MainWindow()
         {
@@ -49,6 +53,11 @@ namespace Yeet
             String tes = getValueCb();
             Console.WriteLine("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=" + getValueCb());
             FetchAsync(tes);
+            if (liste_comp != null)
+            {
+                Window2 window2 = new Window2(liste_comp);
+                window2.Show();
+            }
 
         }
 
@@ -68,31 +77,33 @@ namespace Yeet
             using var response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
             var resultatMoche = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(resultatMoche[0]);
             Console.WriteLine("azer");
             JObject resultatEnObjet = JObject.Parse(resultatMoche);
             // l'array dans lequel chercher -> resultatEnObjet.SelectToken("results")
             //récupérer un objet dans l'array -> item.SelectToken("X") (X étant le champ recherché)
-            List<Recipe> liste_comp = new List<Recipe>();
+            liste_comp = reze.getList();
+            liste_comp.Clear();
             foreach (var item in resultatEnObjet.SelectToken("results"))
             {
                 string name = item.SelectToken("name").ToString();
                 string image = item.SelectToken("thumbnail_url").ToString();
                 string description = item.SelectToken("description").ToString();
                 int duration=0;
-                if (item.SelectToken("total_time_minutes") != null)
+                Console.WriteLine("azer");
+
+                if (item.SelectToken("total_time_minutes") != null && item.SelectToken("total_time_minutes").ToString() != "")
                 {
                     duration = item.SelectToken("total_time_minutes").ToObject<int>();
-                    Console.WriteLine("poutou");
                 }
-                if(item.SelectToken("total_time_minutes") == null)
+
+                if (item.SelectToken("total_time_minutes") == null)
                 {
-                    Console.WriteLine("clarence");
                     duration = 0;
                 }
-                Console.WriteLine("quelq");
+
                 int score_positive=0;
                 int score_negative = 0;
+
                 if (item.SelectToken("user_ratings") != null)
                 {
                     var itel = item.SelectToken("user_ratings");
@@ -155,5 +166,25 @@ namespace Yeet
         {
             throw new NotImplementedException();
         }
+        public List<Recipe> getList()
+        {
+            return liste_comp;
+        }
+        public int getRad()
+        {
+            var rand = new Random();
+            rad = rand.Next(10);
+            return rad;
+        }
+        /*public void display(MainWindow mane,List<Recipe> lipe)
+        {
+            System.Windows.Forms.NotifyIcon klao = new System.Windows.Forms.NotifyIcon();
+            var rand = new Random();
+            PictureBox img = new PictureBox();
+            lipe = liste_comp;
+            //Recipe coca = clark.getList()[clark.getRad()];
+            
+            img.Load(lipe[rand.Next(0,50)].getImage());
+        }*/
     }
 }
